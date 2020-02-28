@@ -2,7 +2,7 @@
   "org2msp": {
     "chaincode": [
       {
-        "name": "tnixacontract",
+        "name": "mccontract",
         "path": "chaincode/asset",
         "channels": [
           "channel1"
