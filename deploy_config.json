@@ -1,0 +1,15 @@
+{
+  "org2msp": {
+    "chaincode": [
+      {
+        "name": "tnixacontract",
+        "path": "chaincode/asset",
+        "channels": [
+          "channel1"
+        ],
+        "instantiate": true,
+        "install": true
+      }
+    ]
+  }
+}

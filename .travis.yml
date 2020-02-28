@@ -1,0 +1,22 @@
+language: go
+go:
+  - "1.12.13"
+
+env:
+  - HLF_VERSION="1.4.4"
+
+install:
+  - echo Begin download Hyperledger Fabric
+  - echo "Extracting and decompressing Fabric version ${HLF_VERSION}"
+  - curl -O -L https://github.com/hyperledger/fabric/archive/v${HLF_VERSION}.tar.gz
+  - tar -xvf v${HLF_VERSION}.tar.gz
+  - export FABRIC_SRC_DIR=$(pwd)/fabric-${HLF_VERSION}
+  - echo Placing Fabric source in directory expected by Go build
+  - mkdir -p ${GOPATH}/src/github.com/hyperledger
+  - mv ${FABRIC_SRC_DIR} ${GOPATH}/src/github.com/hyperledger/fabric
+
+script:
+    - echo Compiling and testing chaincode
+    - go build -v ./... 
+    - go test -v ./...
+ 
